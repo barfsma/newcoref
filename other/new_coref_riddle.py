@@ -434,25 +434,21 @@ def pleonasticpronoun(clf, pipeline, node, tree):
 	Extracts features from the node and its parsetree and stores it in
 	a pandas DataFrame. Uses scikit-learn's RandomForestClassifier and 
 	a custom PipeLine to classify node as pleonastic [1]."""
-	try:
-		if node.attrib["pt"] == "vnw":
-			f_dict = featureDict(node, tree)
+	if node.get("lemma") == "het":
+		f_dict = featureDict(node, tree)
 
-			# create pandas DataFrame
-			df = pd.DataFrame(dict(f_dict), index = [0])
+		# create pandas DataFrame
+		df = pd.DataFrame(dict(f_dict), index = [0])
 
-			# transform DataFrame for pipeline
-			X_prep = pipeline.transform(df)
-			pred = clf.predict(X_prep)			
+		# transform DataFrame for pipeline
+		X_prep = pipeline.transform(df)
+		pred = clf.predict(X_prep)			
 
-			# if classifier predicts [1]: pronoun is pleonastic
-			if pred == [1]:
-				return True
-			else:
-				return False
-
-	except KeyError:
-		pass
+		# if classifier predicts [1]: pronoun is pleonastic
+		if pred == [1]:
+			return True
+		else:
+			return False
 
 
 def getquotations(trees):
