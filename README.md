@@ -19,4 +19,7 @@ $ cd newcoref
 $ pip3 install -r requirements.txt
 ```
 
-Once the dependencies have been installed, please copy the file `new_coref.py` and the folder `pleonastic` to your DutchCoref installation folder. The folder `other` contains scripts which were used for the development of the system. If you wish to reproduce our research, please copy the contents of this folder to your DutchCoref installation location as well.
+Once the dependencies have been installed, please copy the file `new_coref.py` and the folder `pleonastic` to your DutchCoref installation folder. Our script should be called in exactly the same way as `coref.py` from DutchCoref.
+
+## Replicating research
+The folder `other` contains scripts which were used for the development of the system. If you wish to replicate our research, please copy the contents of this folder to your DutchCoref installation location as well. Unfortunately, the two corpora we used for our research contain copyrighted material. As we are not allowed to redistribute copyrighted material, we could not include some files that are essential in order to replicate our research. Therefore, the `sonar` and `riddlecoref` folders are empty, but we did did include the code we used during development. You could still get a hold of the corpora through other means, such as [the website of SoNaR](https://ivdnt.org/downloads/tstc-sonar-corpus).
